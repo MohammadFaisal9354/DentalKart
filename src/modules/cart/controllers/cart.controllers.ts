@@ -1,11 +1,12 @@
-import { Controller, Get, Post, Delete, Body } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Body, UseGuards } from '@nestjs/common';
 import { Product } from 'src/modules/products/entities/product.entity';
 import { ShoppingCart } from '../entities/cart.entity';
 import { CartService } from 'src/modules/cart/services/cart.services';
+import { UserGuard } from 'src/guard/auth.guard';
 // import { InjectModel } from '@nestjs/sequelize';
 // import { Product } from 'src/products/product.model';
 // import { ShoppingCart } from './shopping-cart.model';
-
+@UseGuards(UserGuard)
 @Controller()
 export class ShoppingCartController {
   //constructor() {} //private readonly shoppingCartModel: typeof ShoppingCart, //@InjectModel(ShoppingCart) //private readonly productModel: typeof Product, //@InjectModel(Product)

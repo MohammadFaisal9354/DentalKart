@@ -4,7 +4,7 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-
+import * as bcrypt from 'bcrypt';
 import { User } from 'src/modules/user/entities/user.entity';
 import { UserDto } from '../dtos/user.dto';
 import { v4 as uniqueId } from 'uuid';
@@ -30,21 +30,34 @@ export class UserService {
     if (!user) {
       throw new NotFoundException(`Product with ID ${id} not found`);
     }
-    try {
-      return user;
-    } catch (err) {
-      console.log(err);
-    }
+    return user;
   }
   async addUser(userDto: UserDto): Promise<User> {
+    const { first_name, last_name, email, password, address, mobile } = userDto;
+    if (
+      !first_name ||
+      !last_name ||
+      !email ||
+      !password ||
+      !address ||
+      !mobile
+    ) {
+      throw new BadRequestException('All fields are required');
+    }
+
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const newUser = {
       id: uniqueId(),
-      first_name: userDto.first_name,
-      last_name: userDto.last_name,
-      email: userDto.email,
-      address: userDto.address,
-      mobile: userDto.mobile,
+      first_name,
+      last_name,
+      email,
+      password: hashedPassword,
+      address,
+      mobile,
     };
-    return User.create(newUser);
+    return await User.create(newUser);
   }
 }

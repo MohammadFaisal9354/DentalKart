@@ -14,11 +14,13 @@ export class ErrorFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
     const status = exception.getStatus();
-
+    //console.log(request);
     response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
+      //filter: 'Error Occured',
+      message: exception.message,
     });
   }
 }

@@ -7,7 +7,7 @@ import { cartModule } from './modules/cart/cart.module';
 import { UserModule } from './modules/user/user.module';
 import { OrderModule } from './modules/order/order.module';
 import { ProductsModule } from './modules/products/products.module';
-import { SequelizeModule } from '@nestjs/sequelize';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +16,12 @@ import { SequelizeModule } from '@nestjs/sequelize';
     cartModule,
     UserModule,
     OrderModule,
+    AuthModule,
+    // PassportModule.register({ defaultStrategy: 'jwt' }),
+    // JwtModule.register({
+    //   secret: 'your_secret_key_here',
+    //   signOptions: { expiresIn: '1d' },
+    // }),
     // SequelizeModule.forRoot({
     //   dialect: 'mysql',
     //   host: 'localhost',
@@ -30,6 +36,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
   ],
   controllers: [apiControllers],
   providers: [
+    //JwtStrategy,
     {
       provide: APP_FILTER,
       useClass: ErrorFilter,

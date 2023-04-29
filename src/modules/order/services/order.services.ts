@@ -192,7 +192,7 @@ export class OrderService {
     doc.font('Helvetica-Bold');
     doc.text(`Total Cost: ${totalCost}`);
     doc.end();
-    return doc;
+    //return doc;
     //Convert the PDF document to a buffer
     const buffer = await new Promise<Buffer>((resolve, reject) => {
       const chunks: any[] = [];
