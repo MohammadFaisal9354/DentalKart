@@ -6,6 +6,7 @@ import {
   BelongsTo,
   PrimaryKey,
   AutoIncrement,
+  HasOne,
 } from 'sequelize-typescript';
 import { Order } from './order.entity';
 import { Product } from 'src/modules/products/entities/product.entity';
@@ -28,9 +29,10 @@ export class OrderItem extends Model<OrderItem> {
   @Column
   productId: number;
 
-  @BelongsTo(() => Product)
+  @BelongsTo(() => Product) //one to one one 1productid ke 1 product
   product: Product;
 
+  // @HasOne(()=>)
   @Column
   quantity: number;
 }

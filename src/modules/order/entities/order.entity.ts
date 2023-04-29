@@ -9,10 +9,10 @@ import {
   AutoIncrement,
   Default,
 } from 'sequelize-typescript';
-import { DataType } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
 import { User } from 'src/modules/user/entities/user.entity';
 import { OrderItem } from './Order-item.entity';
+import { DataType } from 'sequelize';
 
 @Table
 export class Order extends Model<Order> {
@@ -26,10 +26,10 @@ export class Order extends Model<Order> {
   @Column
   userId: string;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User) //
   user: User;
 
-  @HasMany(() => OrderItem)
+  @HasMany(() => OrderItem) //one to many oderid->orderitems
   items: OrderItem[];
 
   @Column

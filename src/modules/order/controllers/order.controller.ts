@@ -11,6 +11,10 @@ export class OrderController {
   async placeOrder(@Body() createOrderDto: CreateOrderDto): Promise<Order> {
     return this.orderService.placeOrder(createOrderDto);
   }
+  @Get('cart/:id')
+  async placeOrderbyCart(@Param('id') id: number): Promise<any> {
+    return this.orderService.placeOrderbyCart(id);
+  }
 
   @Get(':id')
   async getOrderById(@Param('id') id: number): Promise<Order> {

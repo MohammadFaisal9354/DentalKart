@@ -5,7 +5,7 @@ export class CreateOrderDto {
   userId: string;
 
   @IsNumber()
-  productId: number;
+  productId: number[];
 
   @IsNumber()
   quantity: number;
