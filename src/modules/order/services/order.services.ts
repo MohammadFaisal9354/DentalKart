@@ -8,7 +8,7 @@ import {
 import { InjectModel } from '@nestjs/sequelize';
 import { Order } from '../entities/order.entity';
 import { OrderItem } from '../entities/Order-item.entity';
-import { Product } from 'src/products/entities/product.entity';
+import { Product } from 'src/modules/products/entities/product.entity';
 import { CreateOrderDto } from '../dtos/order.dto';
 
 @Injectable()

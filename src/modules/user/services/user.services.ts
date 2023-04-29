@@ -5,7 +5,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { User } from 'src/user/entities/user.entity';
+import { User } from 'src/modules/user/entities/user.entity';
 import { UserDto } from '../dtos/user.dto';
 import { v4 as uniqueId } from 'uuid';
 @Injectable()

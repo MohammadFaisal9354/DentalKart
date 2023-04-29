@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Delete, Body } from '@nestjs/common';
-import { Product } from 'src/products/entities/product.entity';
+import { Product } from 'src/modules/products/entities/product.entity';
 import { ShoppingCart } from '../entities/cart.entity';
-import { CartService } from 'src/cart/services/cart.services';
+import { CartService } from 'src/modules/cart/services/cart.services';
 // import { InjectModel } from '@nestjs/sequelize';
 // import { Product } from 'src/products/product.model';
 // import { ShoppingCart } from './shopping-cart.model';

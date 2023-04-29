@@ -11,7 +11,7 @@ import {
 } from 'sequelize-typescript';
 import { DataType } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
-import { User } from 'src/user/entities/user.entity';
+import { User } from 'src/modules/user/entities/user.entity';
 import { OrderItem } from './Order-item.entity';
 
 @Table

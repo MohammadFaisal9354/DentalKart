@@ -9,7 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { UserService } from '../services/user.services';
-import { User } from 'src/user/entities/user.entity';
+import { User } from 'src/modules/user/entities/user.entity';
 import { UserDto } from '../dtos/user.dto';
 @Controller('users')
 export class UserController {

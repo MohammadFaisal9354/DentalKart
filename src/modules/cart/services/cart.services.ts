@@ -1,8 +1,8 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { Controller, Get, Post, Delete, Body } from '@nestjs/common';
-import { Product } from 'src/products/entities/product.entity';
+import { Product } from 'src/modules/products/entities/product.entity';
 import { ShoppingCart } from '../entities/cart.entity';
-import { User } from 'src/user/entities/user.entity';
+import { User } from 'src/modules/user/entities/user.entity';
 @Injectable()
 export class CartService {
   async addCart(body: any) {

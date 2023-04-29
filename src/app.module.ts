@@ -1,16 +1,14 @@
 import { Module } from '@nestjs/common';
-import { SequelizeModule } from '@nestjs/sequelize';
 import { apiControllers } from './api.controllers';
-import { ProductsModule } from './products/products.module';
-import { Product } from './products/entities/product.entity';
-import { ProductService } from './products/services/product.services';
-import { ProductController } from './products/controllers/product.controller';
 import { APP_FILTER } from '@nestjs/core';
 import { ErrorFilter } from './filters/error.filter';
 import { DatabaseModule } from './Databases/database.module';
-import { cartModule } from './cart/cart.module';
-import { UserModule } from './user/user.module';
-import { OrderModule } from './order/order.module';
+import { cartModule } from './modules/cart/cart.module';
+import { UserModule } from './modules/user/user.module';
+import { OrderModule } from './modules/order/order.module';
+import { ProductsModule } from './modules/products/products.module';
+import { SequelizeModule } from '@nestjs/sequelize';
+
 @Module({
   imports: [
     DatabaseModule,
@@ -32,10 +30,10 @@ import { OrderModule } from './order/order.module';
   ],
   controllers: [apiControllers],
   providers: [
-    // {
-    // provide: APP_FILTER,
-    // useClass: ErrorFilter,
-    // },
+    {
+      provide: APP_FILTER,
+      useClass: ErrorFilter,
+    },
   ],
 })
 export class AppModule {}
