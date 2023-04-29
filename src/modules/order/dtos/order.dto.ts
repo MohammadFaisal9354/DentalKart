@@ -8,7 +8,7 @@ export class CreateOrderDto {
   productId: number[];
 
   @IsNumber()
-  quantity: number;
+  quantity: number[];
 
   @IsString()
   payment_details: string;

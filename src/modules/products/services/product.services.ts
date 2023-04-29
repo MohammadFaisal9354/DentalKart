@@ -1,5 +1,5 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { InjectModel } from '@nestjs/sequelize';
+//import { InjectModel } from '@nestjs/sequelize';
 import { Product } from '../entities/product.entity';
 import { CreateProductDto, UpdateProductDto } from '../dtos/dto';
 import { NotFoundException } from '@nestjs/common';
